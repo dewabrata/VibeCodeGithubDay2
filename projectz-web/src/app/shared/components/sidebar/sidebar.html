@@ -1,0 +1,39 @@
+<!-- Sidebar Navigation using Figma Design -->
+<div class="sidebar">
+  <!-- Logo Section -->
+  <div class="sidebar-header">
+    <div class="logo-container">
+      <img [src]="assets.LOGO_ELITECH" alt="Elitech Techovision" class="company-logo">
+    </div>
+  </div>
+
+  <!-- Division Label -->
+  <div class="sidebar-section">
+    <div class="section-label">DIVISI TEKNIK</div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="sidebar-nav">
+    <a *ngFor="let item of menuItems"
+       [routerLink]="item.path"
+       routerLinkActive="active"
+       class="nav-item"
+       [class.active]="item.active">
+      <div class="nav-content">
+        <img [src]="assets.ICONS.CIRCLE" alt="Icon" class="nav-icon">
+        <span class="nav-label">{{ item.label }}</span>
+      </div>
+    </a>
+
+    <!-- Dividers -->
+    <div class="nav-divider"></div>
+
+    <!-- Additional Menu Items -->
+    <a class="nav-item">
+      <div class="nav-content">
+        <img [src]="assets.ICONS.CIRCLE" alt="Icon" class="nav-icon">
+        <span class="nav-label">Pengaturan</span>
+      </div>
+    </a>
+  </nav>
+</div>

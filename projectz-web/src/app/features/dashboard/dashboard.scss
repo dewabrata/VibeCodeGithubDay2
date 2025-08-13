@@ -1,0 +1,274 @@
+@use '../../../assets/styles/variables' as *;
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background: $primary-gray-50;
+
+  .main-content {
+    flex: 1;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow-x: auto;
+
+    .breadcrumbs {
+      .breadcrumb-text {
+        @include text-xl-regular;
+        color: $primary-gray-500;
+      }
+    }
+
+    .loading-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+
+      .loading-spinner {
+        @include text-md-regular;
+        color: $primary-gray-600;
+      }
+    }
+
+    .dashboard-content {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        width: 100%;
+
+        @media (max-width: 1400px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .charts-section {
+        display: grid;
+        grid-template-columns: 521px 522px 521px;
+        gap: 18px;
+
+        @media (max-width: 1400px) {
+          grid-template-columns: 1fr;
+          max-width: 100%;
+        }
+
+        .chart-widget {
+          background: $white;
+          border: 1px solid $primary-gray-100;
+          border-radius: $border-radius-sm;
+          box-shadow: $shadow-xs;
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          height: 400px;
+
+          .chart-header {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .chart-title-section {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+
+              .chart-title {
+                @include text-sm-semibold;
+                color: $primary-gray-900;
+                margin: 0;
+                flex: 1;
+              }
+
+              .chart-trend {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+
+                .trend-arrow {
+                  width: 20px;
+                  height: 20px;
+                  filter: invert(30%) sepia(96%) saturate(1077%) hue-rotate(133deg) brightness(96%) contrast(95%);
+                }
+
+                .trend-value {
+                  @include text-sm-semibold;
+                  color: $success-700;
+                }
+              }
+            }
+
+            .chart-title {
+              @include text-sm-semibold;
+              color: $primary-gray-900;
+              margin: 0;
+            }
+
+            .chart-subtitle {
+              @include text-sm-regular;
+              color: $primary-gray-400;
+              margin: 0;
+            }
+          }
+
+          .chart-divider {
+            height: 1px;
+
+            .divider-image {
+              width: 100%;
+              height: 1px;
+            }
+          }
+
+          .chart-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .chart-image {
+              max-width: 100%;
+              max-height: 100%;
+              object-fit: contain;
+            }
+          }
+
+          .chart-footer {
+            display: flex;
+            justify-content: flex-end;
+
+            .update-time {
+              @include text-sm-regular;
+              color: $primary-gray-400;
+            }
+          }
+        }
+
+        // Sales chart specific styles
+        .sales-chart {
+          .sales-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            .legend-item {
+              display: flex;
+              align-items: center;
+              gap: 16px;
+
+              .legend-color {
+                width: 20px;
+                height: 20px;
+                border-radius: 2px;
+              }
+
+              .legend-label {
+                @include text-sm-medium;
+                color: $primary-gray-500;
+                flex: 1;
+              }
+
+              .legend-value {
+                @include text-sm-medium;
+                color: $primary-gray-600;
+              }
+            }
+          }
+        }
+
+        // Staff performance specific styles
+        .staff-performance {
+          .staff-table {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            .table-header {
+              background: $primary-gray-50;
+              padding: 4px 12px;
+              display: flex;
+              align-items: center;
+              gap: 16px;
+
+              .header-staff {
+                @include text-sm-semibold;
+                color: $primary-gray-500;
+              }
+
+              .header-jumlah {
+                @include text-sm-semibold;
+                color: $primary-gray-800;
+                margin-left: auto;
+              }
+            }
+
+            .table-content {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+
+              .table-row {
+                padding: 4px 12px;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+
+                .staff-name {
+                  @include text-sm-regular;
+                  color: $primary-gray-700;
+                }
+
+                .staff-tasks {
+                  @include text-sm-regular;
+                  color: $primary-gray-700;
+                  margin-left: auto;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .dashboard-footer {
+        padding: 12px 0;
+        display: flex;
+        justify-content: center;
+
+        .footer-text {
+          @include text-md-regular;
+          color: $primary-gray-500;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 1200px) {
+  .dashboard-container .main-content .dashboard-content .charts-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+
+    .main-content {
+      .dashboard-content .charts-section {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

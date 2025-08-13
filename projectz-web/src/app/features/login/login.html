@@ -1,0 +1,55 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <img src="assets/images/logo.png" alt="ProjectZ" class="logo">
+      <h1 class="title">ProjectZ Inventory</h1>
+      <p class="subtitle">Masuk ke dashboard Anda</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <label for="username" class="form-label">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="credentials.username"
+          class="form-input"
+          placeholder="Masukkan username"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="credentials.password"
+          class="form-input"
+          placeholder="Masukkan password"
+          required
+        >
+      </div>
+
+      <div class="error-message" *ngIf="error">
+        {{ error }}
+      </div>
+
+      <button
+        type="submit"
+        class="login-button"
+        [disabled]="loading"
+        [class.loading]="loading"
+      >
+        <span *ngIf="!loading">Masuk</span>
+        <span *ngIf="loading">Sedang masuk...</span>
+      </button>
+    </form>
+
+    <div class="login-footer">
+      <p class="demo-info">Demo credentials: admin / password</p>
+    </div>
+  </div>
+</div>

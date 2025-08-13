@@ -1,0 +1,34 @@
+<!-- Metric Card Template using Figma Design -->
+<div class="metric-card">
+  <div class="metric-header">
+    <h3 class="metric-title">{{ title }}</h3>
+  </div>
+
+  <div class="metric-content">
+    <div class="metric-value-section">
+      <div class="metric-value">{{ value }}</div>
+
+      <!-- Trend Section (for work items) -->
+      <div *ngIf="trend" class="metric-trend">
+        <div class="trend-indicator">
+          <img [src]="getArrowIcon()" alt="Arrow" class="trend-arrow"
+               [class.trend-up]="trend.direction === 'up'"
+               [class.trend-down]="trend.direction === 'down'">
+          <span class="trend-value">{{ trend.value }}%</span>
+        </div>
+        <span class="trend-label">{{ trendLabel }}</span>
+      </div>
+    </div>
+
+    <!-- Icon Section (for products/documents) -->
+    <div *ngIf="icon" class="metric-icon">
+      <img [src]="getIconSrc()" [alt]="icon.type" class="icon-image"
+           [style.color]="icon.color">
+    </div>
+
+    <!-- Mini Chart Section (for work items) -->
+    <div *ngIf="hasChart" class="metric-chart">
+      <img [src]="getMiniChart()" alt="Mini Chart" class="chart-image">
+    </div>
+  </div>
+</div>

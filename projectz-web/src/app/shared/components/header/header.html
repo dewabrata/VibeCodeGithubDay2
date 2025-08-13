@@ -1,0 +1,27 @@
+<!-- Dashboard Header using Figma Design -->
+<div class="header-container">
+  <!-- Welcome Section -->
+  <div class="welcome-section">
+    <h1 class="welcome-title">Selamat datang, {{ currentUser?.namaLengkap || 'User' }}</h1>
+    <p class="welcome-subtitle">Kelola semua aspek penting dari sistem Anda dengan mudah dan efisien.</p>
+  </div>
+
+  <!-- User Account Section -->
+  <div class="user-account">
+    <div class="user-profile">
+      <!-- User Avatar -->
+      <img [src]="getUserAvatar()" alt="User Avatar" class="user-avatar">
+
+      <!-- User Info -->
+      <div class="user-info">
+        <div class="user-name">{{ currentUser?.namaLengkap || 'User Name' }}</div>
+        <div class="user-email">{{ currentUser?.email || 'user@example.com' }}</div>
+      </div>
+    </div>
+
+    <!-- Logout Button -->
+    <button class="logout-button" (click)="logout()" title="Logout">
+      <img [src]="assets.ICONS.LOGOUT" alt="Logout" class="logout-icon">
+    </button>
+  </div>
+</div>

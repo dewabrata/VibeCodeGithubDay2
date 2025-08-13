@@ -1,0 +1,114 @@
+@use '../../../../assets/styles/variables' as *;
+
+.header-container {
+  background: $white;
+  border: 1px solid $primary-gray-200;
+  border-radius: $border-radius-lg;
+  padding: 48px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+
+  .welcome-section {
+    flex: 1;
+
+    .welcome-title {
+      @include display-sm-semibold;
+      color: $primary-gray-900;
+      margin: 0 0 4px 0;
+    }
+
+    .welcome-subtitle {
+      @include text-md-regular;
+      color: $primary-gray-600;
+      margin: 0;
+    }
+  }
+
+  .user-account {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 245px;
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: $primary-gray-100;
+      }
+
+      .user-info {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+
+        .user-name {
+          @include text-sm-semibold;
+          color: $primary-gray-700;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .user-email {
+          @include text-sm-regular;
+          color: $primary-gray-600;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    .logout-button {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: transparent;
+      border-radius: $border-radius-sm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background: $primary-gray-50;
+      }
+
+      &:active {
+        background: $primary-gray-100;
+      }
+
+      .logout-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    .user-account {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+}

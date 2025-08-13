@@ -1,0 +1,143 @@
+<!-- Dashboard Layout using Figma Design -->
+<div class="dashboard-container">
+  <!-- Sidebar Navigation -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <!-- Header Section -->
+    <app-header [currentUser]="currentUser"></app-header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+      <span class="breadcrumb-text">Dashboard</span>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container">
+      <div class="loading-spinner">Loading...</div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div *ngIf="!isLoading" class="dashboard-content">
+      <!-- Metrics Grid -->
+      <div class="metrics-grid">
+        <app-metric-card
+          *ngFor="let card of metricCards"
+          [title]="card.title"
+          [value]="card.value"
+          [icon]="card.icon"
+          [trend]="card.trend"
+          [trendLabel]="card.trendLabel"
+          [hasChart]="card.hasChart"
+          [chartData]="card.chartData">
+        </app-metric-card>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="charts-section">
+        <!-- Activity Chart Widget -->
+        <div class="chart-widget activity-chart">
+          <div class="chart-header">
+            <div class="chart-title-section">
+              <h3 class="chart-title">Aktifitas Pekerjaan</h3>
+              <div class="chart-trend">
+                <img [src]="assets.ICONS.ARROW_UP" alt="Arrow Up" class="trend-arrow">
+                <span class="trend-value">20%</span>
+              </div>
+            </div>
+            <p class="chart-subtitle">7 Hari Terakhir</p>
+          </div>
+          <div class="chart-divider">
+            <img [src]="assets.DIVIDERS.HORIZONTAL" alt="Divider" class="divider-image">
+          </div>
+          <div class="chart-content">
+            <img [src]="assets.CHARTS.LINE_CHART" alt="Line Chart" class="chart-image">
+          </div>
+          <div class="chart-footer">
+            <span class="update-time">Update 11:30AM</span>
+          </div>
+        </div>
+
+        <!-- Sales Chart Widget -->
+        <div class="chart-widget sales-chart">
+          <div class="chart-header">
+            <h3 class="chart-title">Produk terjual</h3>
+            <p class="chart-subtitle">7 Hari Terakhir</p>
+          </div>
+          <div class="chart-divider">
+            <img [src]="assets.DIVIDERS.SIMPLE" alt="Divider" class="divider-image">
+          </div>
+          <div class="chart-content">
+            <img [src]="assets.CHARTS.BAR_CHART" alt="Bar Chart" class="chart-image">
+          </div>
+          <div class="sales-legend">
+            <div class="legend-item">
+              <div class="legend-color" style="background: #fef0c7;"></div>
+              <span class="legend-label">SPO2 Simulator</span>
+              <span class="legend-value">56</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background: #fec84b;"></div>
+              <span class="legend-label">Digital Spirometer</span>
+              <span class="legend-value">34</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background: #444ce7;"></div>
+              <span class="legend-label">Oxygen Concentrator</span>
+              <span class="legend-value">10</span>
+            </div>
+          </div>
+          <div class="chart-divider">
+            <img [src]="assets.DIVIDERS.SIMPLE" alt="Divider" class="divider-image">
+          </div>
+          <div class="chart-footer">
+            <span class="update-time">Update 11:30AM</span>
+          </div>
+        </div>
+
+        <!-- Staff Performance Widget -->
+        <div class="chart-widget staff-performance">
+          <div class="chart-header">
+            <h3 class="chart-title">Jumlah Pekerjaan diselesaikan oleh staff & SPV</h3>
+            <p class="chart-subtitle">7 hari Terakhir</p>
+          </div>
+          <div class="chart-divider">
+            <img [src]="assets.DIVIDERS.HORIZONTAL" alt="Divider" class="divider-image">
+          </div>
+          <div class="staff-table">
+            <div class="table-header">
+              <span class="header-staff">Staff</span>
+              <span class="header-jumlah">Jumlah</span>
+            </div>
+            <div class="table-content">
+              <div class="table-row">
+                <span class="staff-name">Olivia</span>
+                <span class="staff-tasks">30 task</span>
+              </div>
+              <div class="table-row">
+                <span class="staff-name">SPV Putri</span>
+                <span class="staff-tasks">29 task</span>
+              </div>
+              <div class="table-row">
+                <span class="staff-name">Budia</span>
+                <span class="staff-tasks">25 task</span>
+              </div>
+            </div>
+          </div>
+          <div class="chart-divider">
+            <img [src]="assets.DIVIDERS.HORIZONTAL" alt="Divider" class="divider-image">
+          </div>
+          <div class="chart-footer">
+            <span class="update-time">Update 11:30AM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="dashboard-footer">
+        <p class="footer-text">© 2024 <strong style="color: #7f56d9;">Elitech Techovision</strong> All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</div>

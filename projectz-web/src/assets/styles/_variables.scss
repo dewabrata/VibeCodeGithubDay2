@@ -1,0 +1,124 @@
+// Design System Variables from Figma
+// Font Family
+$font-family-inter: 'Inter', sans-serif;
+
+// Colors from Figma Design System
+$primary-gray-50: #f9fafb;
+$primary-gray-100: #F2F4F7;
+$primary-gray-200: #eaecf0;
+$primary-gray-300: #d0d5dd;
+$primary-gray-400: #98a2b3;
+$primary-gray-500: #667085;
+$primary-gray-600: #475467;
+$primary-gray-700: #344054;
+$primary-gray-800: #1d2939;
+$primary-gray-900: #101828;
+
+$success-50: #ECFDF3;
+$success-600: #039855;
+$success-700: #027A48;
+$success-800: #05603a;
+
+$warning-100: #fef0c7;
+$warning-300: #fec84b;
+$warning-600: #dc6803;
+
+// Brand colors
+$brand-50: #f8f9ff;
+$brand-100: #f1f3ff;
+$brand-500: #4f46e5;
+$brand-600: #353780;
+$brand-700: #2d3278;
+
+// Error colors
+$error-50: #fef2f2;
+$error-200: #fecaca;
+$error-700: #b91c1c;
+
+$indigo-600: #444CE7;
+$white: #FFFFFF;
+
+// Typography Mixins from Figma
+@mixin text-xs-regular {
+  font-family: $font-family-inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@mixin text-xs-medium {
+  font-family: $font-family-inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+@mixin text-sm-regular {
+  font-family: $font-family-inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@mixin text-sm-medium {
+  font-family: $font-family-inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@mixin text-sm-semibold {
+  font-family: $font-family-inter;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+@mixin text-md-regular {
+  font-family: $font-family-inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@mixin text-md-medium {
+  font-family: $font-family-inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@mixin text-xl-regular {
+  font-family: $font-family-inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+@mixin display-xs-semibold {
+  font-family: $font-family-inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+@mixin display-sm-semibold {
+  font-family: $font-family-inter;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 38px;
+}
+
+// Spacing
+$spacing-050: 8px;
+$spacing-100: 16px;
+$spacing-150: 24px;
+$spacing-200: 32px;
+
+// Border Radius
+$border-radius-sm: 8px;
+$border-radius-md: 12px;
+$border-radius-lg: 18px;
+
+// Shadow
+$shadow-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);

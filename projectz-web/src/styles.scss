@@ -1,0 +1,118 @@
+/* Global Styles for ProjectZ Web */
+@use 'sass:color';
+@use 'assets/styles/variables' as *;
+
+// Import Inter font
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: $font-family-inter;
+  background: $primary-gray-50;
+  color: $primary-gray-900;
+  line-height: 1.5;
+}
+
+body {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+// Typography classes
+.text-xs-regular { @include text-xs-regular; }
+.text-xs-medium { @include text-xs-medium; }
+.text-sm-regular { @include text-sm-regular; }
+.text-sm-medium { @include text-sm-medium; }
+.text-sm-semibold { @include text-sm-semibold; }
+.text-md-regular { @include text-md-regular; }
+.text-xl-regular { @include text-xl-regular; }
+.display-xs-semibold { @include display-xs-semibold; }
+.display-sm-semibold { @include display-sm-semibold; }
+
+// Color classes
+.text-gray-400 { color: $primary-gray-400; }
+.text-gray-500 { color: $primary-gray-500; }
+.text-gray-600 { color: $primary-gray-600; }
+.text-gray-700 { color: $primary-gray-700; }
+.text-gray-900 { color: $primary-gray-900; }
+.text-success-700 { color: $success-700; }
+
+// Utility classes
+.bg-white { background: $white; }
+.bg-gray-50 { background: $primary-gray-50; }
+.bg-gray-100 { background: $primary-gray-100; }
+
+// Button styles
+.btn {
+  border: none;
+  border-radius: $border-radius-sm;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  @include text-sm-medium;
+
+  &.btn-primary {
+    background: $brand-600;
+    color: $white;
+
+    &:hover {
+      background: color.adjust($brand-600, $lightness: -10%);
+    }
+  }  &.btn-secondary {
+    background: $white;
+    color: $primary-gray-700;
+    border: 1px solid $primary-gray-200;
+
+    &:hover {
+      background: $primary-gray-50;
+    }
+  }
+}
+
+// Loading states
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid $primary-gray-200;
+    border-top: 2px solid $brand-600;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $primary-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary-gray-400;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-gray-500;
+}
