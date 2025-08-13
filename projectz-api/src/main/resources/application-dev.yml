@@ -1,0 +1,54 @@
+# Development Profile Configuration
+spring:
+  datasource:
+    url: jdbc:h2:mem:projectz;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+    
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: projectz
+        
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+    schemas: projectz
+    default-schema: projectz
+    clean-disabled: false
+
+# JWT Configuration
+app:
+  jwt:
+    secret: "======================projectz-dev-secret-key======================"
+    expiration: 86400000
+    refresh-token:
+      expiration: 604800000
+
+# Server Configuration
+server:
+  port: 8080
+
+# OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui
+    enabled: true
+    operationsSorter: method
+    tags-sorter: alpha
+    try-it-out-enabled: true
